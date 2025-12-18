@@ -57,13 +57,7 @@ function Sidebar({ activeMenu, setActiveMenu }: SidebarProps) {
           <span className="nav-text">Hành khách</span>
         </button>
         
-       <button
-          className={`nav-item ${activeMenu === 'employees' ? 'active' : ''}`}
-          onClick={() => setActiveMenu('employees' as MenuType)}
-        >
-          <span className="nav-icon">👤</span>
-          <span className="nav-text">Nhân viên</span>
-        </button>
+       
 
         <button
           className={`nav-item ${activeMenu === 'reports' ? 'active' : ''}`}
@@ -83,7 +77,7 @@ function Sidebar({ activeMenu, setActiveMenu }: SidebarProps) {
           <span className="nav-text">Cài đặt</span>
         </button>
         <button className="nav-item logout" onClick={handleLogout}>
-          <span className="nav-icon">🚪</span>
+          <span className="nav-icon">📤</span>
           <span className="nav-text">Đăng xuất</span>
         </button>
       </div>

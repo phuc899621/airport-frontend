@@ -7,11 +7,10 @@ import FlightsPage from '../components/FlightsPage'
 import AirportsPage from '../components/AirportsPage'
 import TicketsPage from '../components/TicketsPage'
 import PassengersPage from '../components/PassengersPage'
-import EmployeesPage from '../components/EmployeesPage'
 import ReportsPage from '../components/ReportsPage'
 import SettingsPage from '../components/SettingsPage'
 
-type MenuType = 'dashboard' | 'flights' | 'airports' | 'tickets' | 'passengers' | 'employees' | 'reports' | 'settings';
+type MenuType = 'dashboard' | 'flights' | 'airports' | 'tickets' | 'passengers' | 'reports' | 'settings';
 
 function HomePage() {
   const [activeMenu, setActiveMenu] = useState<MenuType>('dashboard')
@@ -28,8 +27,6 @@ function HomePage() {
         return <TicketsPage />
       case 'passengers':
         return <PassengersPage />
-      case 'employees':
-        return <EmployeesPage />
       case 'reports':
         return <ReportsPage />
       case 'settings':

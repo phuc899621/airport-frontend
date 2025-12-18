@@ -41,15 +41,6 @@ export const Header = () => {
                 <li>
                   <a href="/">Trang chủ</a>
                 </li>
-                <li>
-                  <a href="/flightList">Danh sách chuyến bay</a>
-                </li>
-                <li>
-                  <a href="#">Thông tin hành trình</a>
-                </li>
-                <li>
-                  <a href="/find">Mua vé </a>
-                </li>
               </ul>
             </nav>
           </div>

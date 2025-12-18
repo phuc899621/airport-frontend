@@ -7,14 +7,14 @@ interface LoginFormProps {
 }
 
 interface FormData {
-  email: string;
+  tenDangNhap: string;
   password: string;
 }
 
 function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword }: LoginFormProps) {
   const navigate = useNavigate()
   const [formData, setFormData] = useState<FormData>({
-    email: '',
+    tenDangNhap: '',
     password: ''
   })
 
@@ -27,16 +27,12 @@ function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword }: LoginFormPr
     console.log('Đăng nhập:', formData)
     alert('Đăng nhập thành công!')
     
-    const email = formData.email.trim()
+    const email = formData.tenDangNhap.trim()
     const password = formData.password
 
-    if (email === "admin@gmail.com" && password === "123") {
+    if (email === "user" && password === "123456") {
       navigate('/home')
-    } else if (email === "employee@gmail.com" && password === "123") {
-      navigate('/nhanvien')
-    } else {
-      navigate('/khachhang')
-    }
+    } 
   }
 
   return (
@@ -49,13 +45,13 @@ function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword }: LoginFormPr
       
       <form onSubmit={handleSubmit}>
         <div className="input-group">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="text">Tên đăng nhập</label>
           <input 
-            type="email" 
-            name="email"
-            value={formData.email}
+            type="text" 
+            name="tenDangNhap"
+            value={formData.tenDangNhap}
             onChange={handleChange}
-            placeholder="example@email.com" 
+            placeholder="user1" 
             required 
           />
         </div>
@@ -77,15 +73,13 @@ function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword }: LoginFormPr
             <input type="checkbox" />
             <span>Ghi nhớ đăng nhập</span>
           </label>
-          <a href="#" className="forgot-password" onClick={(e) => { e.preventDefault(); onSwitchToForgotPassword(); }}>Quên mật khẩu?</a>
+         
         </div>
         
         <button type="submit" className="btn btn-primary">Đăng nhập</button>
       </form>
       
-      <div className="form-footer">
-        <p>Chưa có tài khoản? <a href="#" onClick={(e) => { e.preventDefault(); onSwitchToRegister(); }}>Đăng ký ngay</a></p>
-      </div>
+      
     </div>
   )
 }

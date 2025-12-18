@@ -5,7 +5,6 @@ import LandingPage from "./pages/LandingPage"
 import ChangePass from "./pages/ChangePassPage"
 import ForgotPass from "./pages/ForgotPassPage"
 import FindFlightPage from "./pages/FindFlightPage"
-import FlightListPage from "./pages/FlightListPage"
 import AirportPage from "./pages/AirportPage"
 
 
@@ -20,7 +19,6 @@ function App() {
         <Route path="/change" element={<ChangePass />} />
         <Route path="/forgot" element={<ForgotPass />} />
         <Route path="/find" element={<FindFlightPage />} />
-        <Route path="/flightList" element={<FlightListPage />} />
         <Route path="/airports" element={<AirportPage />} />
       </Routes>
     </BrowserRouter>
