@@ -1,3 +1,4 @@
+
 # Airport Management System
 
 ## Cấu trúc dự án
@@ -44,3 +45,5 @@ App chạy tại: http://localhost:5173
 - `POST /auth/dang-ky/gui-otp` - Đăng ký tài khoản
 - `POST /auth/dang-ky/xac-thuc` - Xác thực tài khoản đã đăng kí
 # Airport
+
+
