@@ -140,7 +140,9 @@ const FlightListAdmin = () => {
   setShowDetailModal(true);
 
   try {
-    const response = await fetch(`http://localhost:3000/chuyen-bay/${flightId}`);
+    const response = await fetch(`http://localhost:3000/chuyen-bay/${flightId}`,{
+      credentials: 'include'
+    });
     const data = await response.json();
 
     if (data.success && Array.isArray(data.data) && data.data.length > 0) {
@@ -254,6 +256,7 @@ const FlightListAdmin = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: 'include',
         body: JSON.stringify(requestData),
       });
 

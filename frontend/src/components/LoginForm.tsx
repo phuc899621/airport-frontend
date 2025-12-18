@@ -11,7 +11,7 @@ interface FormData {
   password: string;
 }
 
-function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword }: LoginFormProps) {
+function LoginForm({ }: LoginFormProps) {
   const navigate = useNavigate()
   const [formData, setFormData] = useState<FormData>({
     tenDangNhap: '',
@@ -25,13 +25,33 @@ function LoginForm({ onSwitchToRegister, onSwitchToForgotPassword }: LoginFormPr
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log('Đăng nhập:', formData)
-    alert('Đăng nhập thành công!')
     
     const email = formData.tenDangNhap.trim()
     const password = formData.password
-
-    if (email === "user" && password === "123456") {
-      navigate('/home')
+    
+    try {
+      const response = await fetch('http://localhost:3000/auth/nhan-vien/dang-nhap', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          tenDangNhap: email,
+          matKhau: password
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        alert('Đăng nhập thành công!')
+        navigate('/home');
+      } else {
+        alert(`Đăng nhập thất bại: ${data.error || 'Lỗi không xác định'}`);
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('Có lỗi xảy ra khi đăng nhập. Vui lòng thử lại.');
     } 
   }
 
